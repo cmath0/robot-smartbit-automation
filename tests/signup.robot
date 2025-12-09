@@ -3,73 +3,38 @@ Documentation        Cenários de testes de pré-cadastro de clientes
 
 Resource        ../resources/Base.resource
 
+Test Setup        Start session
+Test Teardown        Take Screenshot
+
 *** Test Cases ***
 Deve iniciar o cadastro do cliente
 
     ${account}    Get Fake Account
 
-    Start session
-
     Submit signup form    ${account}
-
     Verify welcome message
 
-Campo Nome completo deve ser obrigatório
-    [Tags]    required
-
-    ${account}    Create Dictionary
-    ...    name=${EMPTY}
-    ...    email=emaildeteste@email.com
-    ...    cpf=12345678909
-
-    Start session
-    Submit signup form    ${account}
-    Notice should be    Por favor informe o seu nome completo    
-
-Campo Email deve ser obrigatório
-    [Tags]    required
-
-    ${account}    Create Dictionary
-    ...    name=Matheus Cardoso
-    ...    email=${EMPTY}
-    ...    cpf=12345678909
-
-    Start session
-    Submit signup form    ${account}
-    Notice should be    Por favor, informe o seu melhor e-mail
-
-Campo CPF deve ser obrigatório
-    [Tags]    required
-
-    ${account}    Create Dictionary
-    ...    name=Matheus Cardoso
-    ...    email=emaildeteste@email.com
-    ...    cpf=${EMPTY}
-
-    Start session
-    Submit signup form    ${account}
-    Notice should be    Por favor, informe o seu CPF    
-
-Email no formato inválido
+Tentativas inválidas de pré-cadastro
     [Tags]    invalid
+    [Template]    Attempt signup
+    ${EMPTY}           emaildeteste@email.com    12345678909    Por favor informe o seu nome completo
+    Matheus Cardoso    ${EMPTY}                  12345678909    Por favor, informe o seu melhor e-mail
+    Matheus Cardoso    emaildeteste@email.com    ${EMPTY}       Por favor, informe o seu CPF
+    Matheus Cardoso    emaildeteste*email.com    12345678909    Oops! O email informado é inválido
+    Matheus Cardoso    emaildeteste&email.com    12345678909    Oops! O email informado é inválido
+    Matheus Cardoso    emaildeteste@email        12345678909    Oops! O email informado é inválido
+    Matheus Cardoso    email.com                 12345678909    Oops! O email informado é inválido
+    Matheus Cardoso    emaildeteste@email.com    1234567890a    Oops! O CPF informado é inválido
+    Matheus Cardoso    emaildeteste@email.com    123            Oops! O CPF informado é inválido
+
+*** Keywords ***
+Attempt signup
+    [Arguments]    ${name}    ${email}    ${cpf}    ${output_message}
 
     ${account}    Create Dictionary
-    ...    name=Matheus Cardoso
-    ...    email=emaildeteste*email.com
-    ...    cpf=12345678909
+    ...    name=${name}
+    ...    email=${email}
+    ...    cpf=${cpf}
 
-    Start session
     Submit signup form    ${account}
-    Notice should be    Oops! O email informado é inválido
-
-CPF no formato inválido
-    [Tags]    invalid
-
-    ${account}    Create Dictionary
-    ...    name=Matheus Cardoso
-    ...    email=emaildeteste@email.com
-    ...    cpf=1234567890a
-
-    Start session
-    Submit signup form    ${account}
-    Notice should be    Oops! O CPF informado é inválido
+    Notice should be    ${output_message}
