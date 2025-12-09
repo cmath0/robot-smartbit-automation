@@ -1,9 +1,7 @@
 *** Settings ***
 Documentation        Cenários de testes de pré-cadastro de clientes
 
-Library        Browser
-
-Resource        ../resources/base.resource
+Resource        ../resources/Base.resource
 
 *** Test Cases ***
 Deve iniciar o cadastro do cliente
@@ -14,9 +12,7 @@ Deve iniciar o cadastro do cliente
 
     Submit signup form    ${account}
 
-    Wait For Elements State    
-    ...    text=Falta pouco para fazer parte da família Smartbit!    
-    ...    visible    5
+    Verify welcome message
 
 Campo Nome completo deve ser obrigatório
     [Tags]    required
@@ -77,30 +73,3 @@ CPF no formato inválido
     Start session
     Submit signup form    ${account}
     Notice should be    Oops! O CPF informado é inválido
-
-*** Keywords ***
-Start session
-    New Browser    chromium    headless=False
-    New Page    http://localhost:3000
-
-Submit signup form
-    [Arguments]    ${account}
-
-    Get Text    css=#signup h2    
-    ...    equal
-    ...    Faça seu cadastro e venha para a Smartbit!
-
-    Fill Text    id=name    ${account}[name]
-    Fill Text    id=email    ${account}[email]
-    Fill Text    id=cpf    ${account}[cpf]
-    
-    Click    css=button >> text=Cadastrar
-
-Notice should be
-    [Arguments]    ${target}
-
-    ${element}    Set Variable    css=.notice >> text=${target}
-
-    Wait For Elements State
-    ...    ${element}
-    ...    visible    5
