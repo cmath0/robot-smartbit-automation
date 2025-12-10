@@ -7,9 +7,13 @@ Library        Browser
 Toast should be
     [Arguments]    ${expectedText}
 
-    Wait For Elements State    css=.Toastify__toast-body
+    ${toastSelector}    Set Variable    .Toastify__toast-body
+
+    Wait For Elements State    css=${toastSelector}
     ...    visible    5
 
-    Get Text    css=.Toastify__toast-body
+    Get Text    css=${toastSelector}
     ...    equal
     ...    ${expectedText}
+
+    Take Screenshot    selector=${toastSelector}

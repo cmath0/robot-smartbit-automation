@@ -1,0 +1,40 @@
+{
+    "create": {
+        "account": {
+            "name": "Guilherme Roberto Almeida",
+            "email": "guilhermerobertoalmeida@tradevalle.com.br",
+            "cpf": "27086323705"
+        },
+        "plan": {
+            "name": "Plano Black",
+            "id": "2",
+            "price": 79.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Guilherme Roberto Almeida",
+            "month": "12",
+            "year": "2033",
+            "cvv": "123"
+        }
+    },
+    "duplicate": {
+        "account": {
+            "name": "Kevin Murilo dos Santos",
+            "email": "kevin-dossantos83@likaleal.com.br",
+            "cpf": "92905773120"
+        },
+        "plan": {
+            "name": "Plano Smart",
+            "id": "1",
+            "price": 99.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Kevin Murilo dos Santos",
+            "month": "12",
+            "year": "2033",
+            "cvv": "123"
+        }
+    }
+}
