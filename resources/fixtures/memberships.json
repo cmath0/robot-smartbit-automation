@@ -36,5 +36,43 @@
             "year": "2033",
             "cvv": "123"
         }
+    },
+    "search": {
+        "account": {
+            "name": "Carolina Marina Viana",
+            "email": "carolina_viana@airinternational.com",
+            "cpf": "52755032456"
+        },
+        "plan": {
+            "name": "Plano Smart",
+            "id": "1",
+            "price": 99.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Carolina Marina Viana",
+            "month": "12",
+            "year": "2033",
+            "cvv": "123"
+        }
+    },
+    "remove": {
+        "account": {
+            "name": "Yago Murilo Farias",
+            "email": "yago-farias90@br.flextronics.com",
+            "cpf": "33917051915"
+        },
+        "plan": {
+            "name": "Plano Black",
+            "id": "2",
+            "price": 79.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Yago Murilo Farias",
+            "month": "12",
+            "year": "2033",
+            "cvv": "123"
+        }
     }
 }

@@ -18,6 +18,7 @@ Resource        ./pages/Memberships.resource
 Resource        ./pages/components/Toast.resource
 Resource        ./pages/components/BoxNotice.resource
 Resource        ./pages/components/Navbar.resource
+Resource        ./pages/components/Modal.resource
 
 *** Variables ***
 ${ADMIN_EMAIL}    sac@smartbit.com
