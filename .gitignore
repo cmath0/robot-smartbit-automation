@@ -10,3 +10,6 @@ output.xml
 report.html
 *screenshot-*.png
 *playwright-log.txt
+
+### node ###
+node_modules/

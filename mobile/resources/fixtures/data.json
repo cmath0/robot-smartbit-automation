@@ -1,0 +1,21 @@
+{
+    "login": {
+        "account": {
+            "name": "Francisco Marcos Novaes",
+            "email": "francisco.novaes@villalobos.mu.br",
+            "cpf": "89847275807"
+        },
+        "plan": {
+            "name": "Plano Black",
+            "id": "2",
+            "price": 79.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Francisco Marcos Novaes",
+            "month": "12",
+            "year": "2033",
+            "cvv": "123"
+        }
+    }
+}
