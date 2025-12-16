@@ -3,6 +3,8 @@
 *** Settings ***
 Documentation        Arquivo principal do projeto Robot
 
+Variables        Env.py
+
 Library        JSONLibrary
 
 Library        Browser
@@ -26,8 +28,8 @@ ${ADMIN_PASS}     pwd123
 
 *** Keywords ***
 Start session
-    New Browser    chromium    headless=False
-    New Page    http://localhost:3000
+    New Browser    browser=${BROWSER}    headless=${HEADLESS}
+    New Page    ${BASE_URL}
 
 # Helpers
 Get JSON fixture

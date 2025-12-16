@@ -13,3 +13,6 @@ report.html
 
 ### node ###
 node_modules/
+
+### Dotenv ###
+.env
