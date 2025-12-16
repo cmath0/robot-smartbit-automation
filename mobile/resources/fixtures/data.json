@@ -17,5 +17,26 @@
             "year": "2033",
             "cvv": "123"
         }
+    },
+    "update": {
+        "account": {
+            "name": "Guilherme Campos",
+            "email": "guilherme_campos@juliosimoes.com.br",
+            "cpf": "81813024359",
+            "weight": 75,
+            "height": 190
+        },
+        "plan": {
+            "name": "Plano Black",
+            "id": "2",
+            "price": 79.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Guilherme Campos",
+            "month": "12",
+            "year": "2033",
+            "cvv": "123"
+        }
     }
 }
